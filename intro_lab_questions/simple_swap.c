@@ -4,8 +4,6 @@ int main() {
     int num1, num2;
     printf("Input your two numbers, separated by spaces.\n\t>> ");
     
-    // Need to flush stdout to show printf?
-    fflush(stdout);
     scanf("%d %d", &num1, &num2);
 
     // Your code here, which should swap the values of `num1` and `num2`
