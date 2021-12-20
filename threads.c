@@ -2,6 +2,9 @@
 #include<stdlib.h>
 #include<pthread.h>
 
+// Need to include -lpthread in compile command on linux
+// e.g. gcc -lpthread threads.c -o threads
+
 void *entry(void *arg) {
 
     int *myThreadNumber = (int *)arg;
@@ -12,7 +15,7 @@ void *entry(void *arg) {
 
 int main() {
 
-    pthread_t thread[5];
+    pthread_t threads[5];
     int arguments[5] = {1,2,3,4,5};
 
     int i;
