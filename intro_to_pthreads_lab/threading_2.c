@@ -1,6 +1,6 @@
 /*
-  This code _should_ print all of the characters in "Hello, world!"
-  Modify `entry()` so that our threads print the characters they're passed as arguments.
+    Modify main from threading_1.c so that it waits for each
+    thread to finish.
 */
 #include <pthread.h>
 #include <stdio.h>
@@ -9,9 +9,11 @@
 
 #define NUM_THREADS 14
 
+// void pointer functions
+
 void * entry(void * arg) {
-  char *myChar = (char *)arg;
-  printf("%c\n", *myChar);
+    char *myChar = (char *)arg;
+    printf("%c\n", *myChar);
 }
 
 int main() {
@@ -21,6 +23,7 @@ int main() {
     int i;
     for (i = 0; i < NUM_THREADS; i++) {
         pthread_create(&threads[i], NULL, entry, &hw[i]);
+        pthread_join(threads[i], NULL);
     }
 
     // ask why printed values are weird?
