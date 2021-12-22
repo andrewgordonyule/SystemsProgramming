@@ -10,6 +10,7 @@
 #define NUM_THREADS 14
 
 // void pointer functions
+// need to cast type of arg
 
 void * entry(void * arg) {
     char *myChar = (char *)arg;
@@ -25,8 +26,6 @@ int main() {
         pthread_create(&threads[i], NULL, entry, &hw[i]);
         pthread_join(threads[i], NULL);
     }
-
-    // ask why printed values are weird?
 
     return 0;
 
